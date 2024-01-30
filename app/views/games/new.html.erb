@@ -1,0 +1,15 @@
+<% @array_letters.each do |e| %>
+
+  <div width="200" height="200" style="width:800px; height:80px; display:inline; background-color:blue;  margin-right :10px;">
+  <span style=" font-size:40px;" > <%= e %> </span>
+  </div>
+  <% end %>
+
+<p class="form-prefix">What is the longest word you can find?</p>
+
+<form action="/score" method="POST" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @array_letters %>
+  <input type="text" name="word">
+  <input type="submit" value="Ask!">
+</form>
